@@ -14,9 +14,9 @@ def test_load_data():
     for data_set in [train_data, test_data]:
         assert len(data_set[0][0]) == 784  # feature is a vector of size 784, 28x28 pixels image flattened
         assert type(data_set[0][0]) == np.ndarray
-        assert data_set[0][0].shape == (784,)
+        assert data_set[0][0].shape == (784, 1)
 
         assert len(data_set[0][1]) == 10  # label is a one-hot encoding vector of size 10
         assert type(data_set[0][1]) == np.ndarray
-        assert data_set[0][1].shape == (10,)
+        assert data_set[0][1].shape == (10, 1)
         assert sum(data_set[0][1]) == 1  # only one bit in the label vector is 1, other 9 are 0
