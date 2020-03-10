@@ -10,7 +10,7 @@ import numpy as np
 
 
 def svm_baseline():
-    train_data, test_data = load_data()
+    train_data, _, test_data = load_data()
     train_features = [e[0].reshape(784, ) for e in train_data]
     train_labels = [np.argmax(e[1].reshape(10, )) for e in train_data]
 

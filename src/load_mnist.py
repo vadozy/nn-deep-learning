@@ -17,8 +17,10 @@ def shape_data(data: Tuple[np.ndarray, np.ndarray]) -> List[Tuple[np.ndarray, np
     return list(zip(features, labels))
 
 
-def load_data() -> Tuple[List[Tuple[np.ndarray, np.ndarray]], List[Tuple[np.ndarray, np.ndarray]]]:
+def load_data() -> Tuple[List[Tuple[np.ndarray, np.ndarray]],
+                         List[Tuple[np.ndarray, np.ndarray]],
+                         List[Tuple[np.ndarray, np.ndarray]]]:
     file_name = os.path.join(os.path.abspath(os.path.dirname(__file__)), '../data/mnist.pkl.gz')
     with gzip.open(file_name, 'rb') as f:
         train_data, validation_data, test_data = pickle.load(f, encoding='bytes')
-    return shape_data(train_data), shape_data(test_data)
+    return shape_data(train_data), shape_data(validation_data), shape_data(test_data)
